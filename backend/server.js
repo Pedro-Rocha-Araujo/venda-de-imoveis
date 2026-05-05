@@ -20,4 +20,6 @@ async function conectarBanco() {
 }
 conectarBanco()
 
+app.use("/uploads", express.static("uploads"))
+
 app.listen(4000, ()=> console.log("Servidor rodando!"))
