@@ -37,8 +37,8 @@ export async function novaCasa(request, response) {
 
 export async function editarCasa(request, response) {
   try {
-    const { id } = request.params
-    if(!id) {
+    const { casa_id } = request.params
+    if(!casa_id) {
       return response.status(400).json({Erro: "Os dados não foram passados corretamente!"})
     }
 
@@ -53,7 +53,7 @@ export async function editarCasa(request, response) {
     }
 
     const { descricao, preco, localizacao, status } = request.body
-    const query = await ModelCasa.findByIdAndUpdate({_id: id}, {
+    const query = await ModelCasa.findByIdAndUpdate({_id: casa_id}, {
       usuario: id_usuario,
       foto: `http://localhost:4000/uploads/${foto}`,
       descricao: descricao,
@@ -69,11 +69,11 @@ export async function editarCasa(request, response) {
 
 export async function deletarCasa(request, response) {
   try {
-    const { id } = request.params
-    if(!id) {
+    const { casa_id } = request.params
+    if(!casa_id) {
       return response.status(400).json({Erro: "Os dados não foram passados corretamente!"})
     }
-    const query = await ModelCasa.findByIdAndDelete(id)
+    const query = await ModelCasa.findByIdAndDelete(casa_id)
     return response.status(200).json({Mensagem: "Casa apagada com sucesso!"})
   } catch {
     return response.status(500).json({Erro: "Erro ao deletar casa!"})
