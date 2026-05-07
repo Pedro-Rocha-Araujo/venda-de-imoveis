@@ -1,7 +1,13 @@
+import { BrowserRouter } from "react-router-dom";
+import Header from "./components/elements/Header"
+import RouterApp from "./routes"
+
 function App() {
   return (
-    <div className="app">
-    </div>
+    <BrowserRouter>
+      <Header />
+      <RouterApp />
+    </BrowserRouter>
   );
 }
 
