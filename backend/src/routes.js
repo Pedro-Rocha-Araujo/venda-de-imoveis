@@ -4,7 +4,7 @@ import { upload } from "./upload.js"
 import { logarUsuario, cadastrarUsuario, mostrarUsuarios } from "./controllers/usuarioController.js"
 import { listarCasas, novaCasa, editarCasa, deletarCasa } from "./controllers/casaController.js"
 import { casasCadastradas } from "./controllers/dashboardController.js"
-import { fazerReserva } from "./controllers/reservaController.js"
+import { fazerReserva, listarReservas, deletarReserva } from "./controllers/reservaController.js"
 
 const router = Router()
 
@@ -20,6 +20,8 @@ router.delete("/casas/:casa_id", deletarCasa)
 // Rotas relacionadas ao Dashboard
 router.get("/dashboard", casasCadastradas)
 // Rotas relacionadas às reservas
+router.get("/reservas", listarReservas)
 router.post("/casas/:casa_id/reserva", fazerReserva)
+router.delete("/reservas/cancelar", deletarReserva)
 
 export default router

@@ -2,6 +2,16 @@ import ModelReserva from "../models/Reserva.js"
 import ModelCasa from "../models/Casa.js"
 import ModelUsuario from "../models/Usuario.js"
 
+export async function listarReservas(request, response) {
+  try {
+    const id_usuario = request.headers
+    const query = await ModelReserva.find({usuario: id_usuario}).populate("casas")
+    return response.status(200).json(query)
+  } catch {
+    return response.status(500).json({Erro: "Erro ao listar as reservas!"})
+  }
+}
+
 export async function fazerReserva(request, response) {
   try {
     const { id_usuario } = request.headers
@@ -32,5 +42,15 @@ export async function fazerReserva(request, response) {
 
   } catch {
     return response.status(500).json({Erro: "Erro ao fazer a reserva!"})
+  }
+}
+
+export async function deletarReserva(request, response) {
+  try {
+    const { id_reserva } = request.body
+    await ModelReserva.findByIdAndDelete({ _id: id_reserva })
+    return response.status(200).json({Mensagem: "Reserva cancelada!"})
+  } catch {
+    return response.status(500).json({Erro: "Erro ao deletar a reserva!"})
   }
 }
