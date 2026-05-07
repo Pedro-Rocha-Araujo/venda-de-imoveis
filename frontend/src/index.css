@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: rgb(225, 235, 243);
+  background-color: rgb(231, 231, 231);
 }
 
 header {
@@ -20,6 +20,10 @@ header div.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+header a {
+  color: #fff;
 }
 
 .container {
@@ -41,6 +45,6 @@ span {
 }
 
 a {
-  color: #fff;
   text-decoration: none;
+  color: #000;
 }

@@ -10,7 +10,7 @@ div.casa {
   background-color: #fff;
   max-width: 320px;
   padding: 0.4rem;
-  border-radius: 0.4rem;
+  border-radius: 0.6rem;
 }
 
 div.casa img {
@@ -22,4 +22,15 @@ div.footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+div.casa-maior {
+  background-color: #fff;
+  margin: auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

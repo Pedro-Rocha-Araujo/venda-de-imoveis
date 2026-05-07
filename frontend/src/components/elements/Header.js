@@ -4,7 +4,7 @@ function Header() {
   return (
     <header>
       <div className="container">
-        <h1>Imobiliária</h1>   
+        <h1><Link to="/casas">Imobiliária</Link></h1>   
         <Link to="/perfil">
           <i className="fa-solid fa-user fa-2xl"></i>    
         </Link>

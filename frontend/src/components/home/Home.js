@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./home.css"
 
 function Home() {
@@ -8,7 +9,7 @@ function Home() {
         <div className="casa">
           <img src="https://media.licdn.com/dms/image/v2/D4E22AQGvDqlxiM0LRw/feedshare-shrink_800/B4EZfAUJdoHwAk-/0/1751278213725?e=2147483647&v=beta&t=5YiB5w3wU6am4HAyjS2K_ve6drZP3dnQ7MxhGq0SwpY" />
           <div className="footer">
-            <h2>Casa 245</h2>
+            <h2><Link to={`/casa/${1}`} >Casa 245</Link></h2>
             <span>R$ 1200,00</span>
           </div>
         </div>
