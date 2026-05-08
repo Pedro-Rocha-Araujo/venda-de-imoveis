@@ -3,6 +3,7 @@ import Home from "./components/home/Home"
 import Casa from "./components/home/Casa"
 import Cadastro from "./components/usuario/Cadastro"
 import Login from "./components/usuario/Login"
+import Perfil from "./components/perfil/Perfil"
 
 function RouterApp() {
   return (
@@ -11,6 +12,7 @@ function RouterApp() {
       <Route path="/casa/:id" element={ <Casa /> } />
       <Route path="/cadastro" element={ <Cadastro /> } />
       <Route path="/login" element={ <Login /> } />
+      <Route path="/perfil" element={ <Perfil /> } />
     </Routes>
   )
 }
