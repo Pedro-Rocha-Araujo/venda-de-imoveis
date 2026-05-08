@@ -11,7 +11,11 @@ function Casa() {
             <h2>Casa 245</h2>
             <span>R$ 1200,00</span>
           </div>
-          <p>Aluga-se casa perto do centro com 150 metros quadrados, próximo à hospitais, mercados e centros logísticos</p>
+          <div className="footer">
+            <span><i className="fa-solid fa-location-dot"></i> São Paulo</span>
+            <button className="reserva">Reservar</button>
+          </div>
+          <p className="descricao">Aluga-se casa perto do centro com 150 metros quadrados, próximo à hospitais, mercados e centros logísticos</p>
         </div>
 
       </div>
