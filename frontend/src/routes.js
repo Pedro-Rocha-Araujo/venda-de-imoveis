@@ -4,6 +4,7 @@ import Casa from "./components/home/Casa"
 import Cadastro from "./components/usuario/Cadastro"
 import Login from "./components/usuario/Login"
 import Perfil from "./components/perfil/Perfil"
+import NovaCasa from "./components/formularios/NovaCasa"
 
 function RouterApp() {
   return (
@@ -13,6 +14,7 @@ function RouterApp() {
       <Route path="/cadastro" element={ <Cadastro /> } />
       <Route path="/login" element={ <Login /> } />
       <Route path="/perfil" element={ <Perfil /> } />
+      <Route path="/nova-casa" element={ <NovaCasa /> } />
     </Routes>
   )
 }

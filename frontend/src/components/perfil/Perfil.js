@@ -1,8 +1,15 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "./perfil.css"
 
 function Perfil() {
   const [minhasCasas, setMinhasCasas] = useState([])
+  const navigate = useNavigate()
+
+  function redirecionar(rota) {
+    navigate(`/${rota}`)
+  }
+
   return (
     <div className="container">
       <div className="dados">
@@ -18,7 +25,9 @@ function Perfil() {
             <p>Cas</p>
           ) }
         </div>
-        <button className="cadastrar">Cadastrar casa</button>
+        <button onClick={()=>redirecionar("nova-casa")} className="cadastrar">
+          Cadastrar casa
+        </button>
       </div>
       <button className="sair">Sair</button>
     </div>

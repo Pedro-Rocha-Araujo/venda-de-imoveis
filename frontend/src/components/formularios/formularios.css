@@ -1,0 +1,65 @@
+div.nova-casa h2 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+form.nova-casa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+form.nova-casa input, form.nova-casa button {
+  height: 2.6rem;
+  width: 100%;
+  max-width: 580px;
+}
+
+form.nova-casa input::placeholder, form.nova-casa textarea::placeholder {
+  font-size: 1rem;
+}
+
+div.input-file {
+  position: relative;
+  background-color: transparent;
+  border: 1px dashed rgb(73, 73, 73);
+  width: 100%;
+  max-width: 580px;
+}
+
+div.input-file:hover {
+  cursor: pointer;
+}
+
+div.input-file p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+form.nova-casa input[type="file"] {
+  opacity: 0; 
+  height: 5rem;
+}
+
+form.nova-casa input {
+  padding: 0.4rem;
+  border: 1px solid rgb(73, 73, 73);
+}
+
+form.nova-casa textarea {
+  padding: 0.4rem;
+  width: 100%;
+  max-width: 580px;
+  min-height: 100px;
+}
+
+form.nova-casa button {
+  border: none;
+  background-color: #5e1f28;
+  color: #fff;
+  font-size: 1rem;
+}
