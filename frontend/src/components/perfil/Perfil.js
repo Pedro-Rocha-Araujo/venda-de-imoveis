@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Navigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import "./perfil.css"
 
@@ -15,6 +15,7 @@ function Perfil() {
     try {
       localStorage.removeItem("token")
       toast.success("Deslogado com sucesso!")
+      navigate(0)
     } catch {
       toast.error("Erro ao sair da conta!")
     }

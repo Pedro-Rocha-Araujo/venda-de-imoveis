@@ -4,6 +4,8 @@ import RouterApp from "./routes"
 import { ToastContainer } from "react-toastify"
 
 function App() {
+  const token = localStorage.getItem("token")
+
   return (
     <BrowserRouter>
       <ToastContainer autoClose="1000" />
