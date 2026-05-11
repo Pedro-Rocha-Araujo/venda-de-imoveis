@@ -11,6 +11,7 @@ function Login() {
         </div>
         <form className="main-cadastro">
           <input type="email" placeholder="Digite seu Email" required />
+          <button>Logar</button>
         </form>
         <p>Não tem uma conta?<Link to="/cadastro"> Fazer Cadastro.</Link></p>
       </div>

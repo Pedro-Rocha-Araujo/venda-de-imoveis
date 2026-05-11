@@ -6,11 +6,8 @@ div.usuario {
 }
 
 div.cadastro {
-  background-color: rgba(0, 0, 0, 0.137);
-  backdrop-filter: blur(1rem);
   width: 100%;
   max-width: 620px;
-  border: 1px solid #5e1f28;
 }
 
 div.header-cadastro {
@@ -26,8 +23,11 @@ div.header-cadastro h2 {
 }
 
 form.main-cadastro {
-  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.137);
+  backdrop-filter: blur(1rem);
   display: flex;
+  flex-direction: column;
+  border: 1px solid #5e1f28;
 }
 
 form.main-cadastro input {
@@ -36,21 +36,25 @@ form.main-cadastro input {
   outline: none;
   height: 2.8rem;
   padding: 0.4rem;
+  margin: 1rem 0;
 }
 
 form.main-cadastro input::placeholder {
   font-size: 1.04rem;
 }
 
-div.cadastro p {
-  text-align: center;
-  padding: 0.8rem 0;
+form.main-cadastro button {
+  height: 2.8rem;
+  width: 100%;
+  border: none;
   background-color: #5e1f28;
   color: #fff;
+  font-size: 1rem;
 }
 
-div.cadastro a {
-  color: #fff;
+div.cadastro p {
+  text-align: center;
+  margin-top: 0.6rem;
 }
 
 div.cadastro a:hover {

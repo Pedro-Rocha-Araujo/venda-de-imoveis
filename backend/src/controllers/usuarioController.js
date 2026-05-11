@@ -1,4 +1,6 @@
 import ModelUsuario from "../models/Usuario.js"
+import jwt from "jsonwebtoken"
+import "dotenv/config"
 
 export async function mostrarUsuarios(request, response) {
   try {
@@ -14,11 +16,20 @@ export async function logarUsuario(request, response) {
     const { email } = request.body
     const consulta = await ModelUsuario.findOne({email: email})
     if(!consulta) {
-      return response.status(400).json({Erro: "Usuário não possui um login!"})
+      return response.status(401).json({Erro: "Usuário não possui um cadastro!"})
     }
-    return response.status(200).json({Mensagem: "Usuário logado com sucesso!"})
+    const token = jwt.sign(
+      { id: consulta._id },
+      process.env.SENHA_JWT,
+      { expiresIn: "1h" }
+    )
+    return response.status(200).json({
+      Mensagem: "Usuário logado com sucesso!",
+      token,
+      usuario: consulta
+    })
   } catch {
-    return response.status(500).json({Erro: "Erro ao cadastrar usuario!"})
+    return response.status(401).json({Erro: "Erro ao cadastrar usuario!"})
   }
 }
 
@@ -27,10 +38,19 @@ export async function cadastrarUsuario(request, response) {
     const { email } = request.body
     const consulta = await ModelUsuario.findOne({ email: email })
     if(consulta) {
-      return response.status(400).json({Erro: "O usuário em questão já possui um login!"})
+      return response.status(409).json({Erro: "O usuário já possui uma conta!"})
     }
-    const query = await ModelUsuario.insertOne({ email: email })
-    return response.status(201).json({Mensagem: "Usuario cadastrado com sucesso!"})
+    const query = await ModelUsuario.create({ email: email })
+    const token = jwt.sign(
+      {id: query._id}, 
+      process.env.SENHA_JWT, 
+      {expiresIn:"1h"}
+    )
+    return response.status(201).json({
+      Mensagem: "Usuario cadastrado com sucesso!",
+      token,
+      query
+    })
   } catch {
     return response.status(500).json({Erro: "Erro ao cadastrar usuário!"})
   }

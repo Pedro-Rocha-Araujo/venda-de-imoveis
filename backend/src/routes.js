@@ -6,6 +6,8 @@ import { listarCasas, novaCasa, editarCasa, deletarCasa } from "./controllers/ca
 import { casasCadastradas } from "./controllers/dashboardController.js"
 import { fazerReserva, listarReservas, deletarReserva } from "./controllers/reservaController.js"
 
+import { checarToken } from "./middlewares/usuarioMiddleware.js"
+
 const router = Router()
 
 // Rotas relacionadas aos usuários e controles de seção.
