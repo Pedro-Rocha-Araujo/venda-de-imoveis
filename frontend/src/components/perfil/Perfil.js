@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 import "./perfil.css"
 
 function Perfil() {
@@ -8,6 +9,15 @@ function Perfil() {
 
   function redirecionar(rota) {
     navigate(`/${rota}`)
+  }
+
+  function deslogarUsuario() {
+    try {
+      localStorage.removeItem("token")
+      toast.success("Deslogado com sucesso!")
+    } catch {
+      toast.error("Erro ao sair da conta!")
+    }
   }
 
   return (
@@ -29,7 +39,7 @@ function Perfil() {
           Cadastrar casa
         </button>
       </div>
-      <button className="sair">Sair</button>
+      <button onClick={deslogarUsuario} className="sair">Sair</button>
     </div>
   );
 }
