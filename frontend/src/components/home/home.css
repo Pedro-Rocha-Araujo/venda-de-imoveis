@@ -8,14 +8,15 @@ div.casas {
 div.casa {
   width: 100%;
   background-color: #fff;
-  max-width: 320px;
-  padding: 0.4rem;
+  max-width: 340px;
+  padding: 0.6rem;
   border-radius: 0.6rem;
 }
 
 div.casa img {
   width: 100%;
   aspect-ratio: 3/2;
+  object-fit: cover;
 }
 
 div.footer {
