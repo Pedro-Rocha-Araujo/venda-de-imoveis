@@ -2,7 +2,7 @@ import { Router } from "express"
 import { upload } from "./upload.js"
 
 import { logarUsuario, cadastrarUsuario, mostrarUsuarios } from "./controllers/usuarioController.js"
-import { listarCasas, novaCasa, editarCasa, deletarCasa } from "./controllers/casaController.js"
+import { listarCasas, listarCasa, novaCasa, editarCasa, deletarCasa } from "./controllers/casaController.js"
 import { casasCadastradas } from "./controllers/dashboardController.js"
 import { fazerReserva, listarReservas, deletarReserva } from "./controllers/reservaController.js"
 
@@ -16,6 +16,7 @@ router.post("/login", logarUsuario)
 router.post("/cadastro", cadastrarUsuario)
 // Rotas relacionadas às Casas
 router.get("/casas", listarCasas)
+router.get("/casa/:id", listarCasa)
 router.post("/casas", upload.single("foto"), novaCasa)
 router.put("/casas/:casa_id", upload.single("foto"), editarCasa)
 router.delete("/casas/:casa_id", deletarCasa)

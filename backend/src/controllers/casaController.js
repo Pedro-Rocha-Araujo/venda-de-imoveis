@@ -9,6 +9,19 @@ export async function listarCasas(request, response) {
   }
 }
 
+export async function listarCasa(request, response) {
+  try {
+    const { id } = request.params
+    if(!id || id === undefined) {
+      return response.status(400).json({Erro: "Erro ao buscar casa pelo Id"})
+    }
+    const query = await ModelCasa.findById( id )
+    return response.status(200).json(query)
+  } catch {
+    return response.status(500).json({Erro: "Erro ao buscar casa!"})
+  }
+}
+
 export async function novaCasa(request, response) {
   try {
     const { id_usuario } = request.headers
