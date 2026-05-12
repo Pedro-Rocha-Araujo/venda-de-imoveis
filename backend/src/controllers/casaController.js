@@ -24,7 +24,7 @@ export async function listarCasa(request, response) {
 
 export async function novaCasa(request, response) {
   try {
-    const { id_usuario } = request.headers
+    const id_usuario = request.usuario.id
     if(!id_usuario) {
       return response.status(400).json({Erro: "Usuário não está devidamente logado!"})
     }

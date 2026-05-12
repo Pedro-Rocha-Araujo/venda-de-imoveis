@@ -17,7 +17,7 @@ router.post("/cadastro", cadastrarUsuario)
 // Rotas relacionadas às Casas
 router.get("/casas", listarCasas)
 router.get("/casa/:id", listarCasa)
-router.post("/casas", upload.single("foto"), novaCasa)
+router.post("/casas", checarToken, upload.single("foto"), novaCasa)
 router.put("/casas/:casa_id", upload.single("foto"), editarCasa)
 router.delete("/casas/:casa_id", deletarCasa)
 // Rotas relacionadas ao Dashboard
