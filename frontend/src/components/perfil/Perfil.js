@@ -25,6 +25,14 @@ function Perfil() {
     getMinhasCasas()
   }, [])
 
+  async function deletarCasa(id) {
+    try {
+      await axios.delete("http://localhost:4000/casas/"+id)
+      navigate(0)
+    } catch {
+      toast.error("Erro ao deletar Casa")
+    }
+  }
 
   function redirecionar(rota) {
     navigate(`/${rota}`)
@@ -55,7 +63,8 @@ function Perfil() {
             minhasCasas.map((casa, index)=>{
               return (
 
-                <div key={casa._id} className="casa">
+                <div key={casa._id} className="casa pessoal">
+                  <i onClick={()=>deletarCasa(casa._id)} className="fa-solid fa-trash fa-lg"></i>
                   <img src={casa.foto} />
                   <div className="footer">
                     <h3><Link to={`/casa/${casa._id}`} >Ver mais</Link></h3>

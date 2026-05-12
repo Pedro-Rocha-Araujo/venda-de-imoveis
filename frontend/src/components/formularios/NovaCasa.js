@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { toast } from "react-toastify"
 import axios from "axios"
@@ -8,6 +9,7 @@ function NovaCasa() {
   const [preco, setPreco] = useState()
   const [localizacao, setLocalizacao] = useState("")
   const [descricao, setDescricao] = useState("")
+  const navigate = useNavigate()
 
   async function cadastrarCasa(e) {
     e.preventDefault()
@@ -24,6 +26,7 @@ function NovaCasa() {
           "Content-Type": "multipart/form-data"
         }
       })
+      navigate(0)
       toast.success("Casa Cadastrada!")
     } catch {
       toast.error("Erro ao cadastrar Casa!")

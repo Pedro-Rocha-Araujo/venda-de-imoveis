@@ -47,3 +47,24 @@ button.sair {
 button.sair:hover {
   background-color: #752c37;
 }
+
+div.casa {
+  position: relative;
+}
+
+div.pessoal {
+  border: 1px solid #e4e4e4;
+  box-shadow: -2px 2px 4px 1px rgba(0, 0, 0, 0.24);
+}
+
+div.casa i.fa-trash {
+  position: absolute;
+  top: 1rem;
+  right: 0.9rem;
+  color: #fff;
+  background-color: #752c37;
+  border: 1px solid black;
+  padding: 1.2rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
