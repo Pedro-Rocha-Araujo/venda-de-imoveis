@@ -21,7 +21,7 @@ router.post("/casas", checarToken, upload.single("foto"), novaCasa)
 router.put("/casas/:casa_id", upload.single("foto"), editarCasa)
 router.delete("/casas/:casa_id", deletarCasa)
 // Rotas relacionadas ao Dashboard
-router.get("/dashboard", casasCadastradas)
+router.get("/dashboard", checarToken, casasCadastradas)
 // Rotas relacionadas às reservas
 router.get("/reservas", listarReservas)
 router.post("/casas/:casa_id/reserva", fazerReserva)
