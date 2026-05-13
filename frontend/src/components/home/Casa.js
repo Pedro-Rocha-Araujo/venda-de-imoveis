@@ -46,7 +46,7 @@ function Casa() {
   return (
     <section>
       { idCard && (
-        <CardProposta fecharCard={fecharCard} />
+        <CardProposta idCasa={casa._id} fecharCard={fecharCard} />
       ) }
       <div className="container">
       

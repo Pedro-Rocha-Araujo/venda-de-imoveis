@@ -39,6 +39,17 @@ div.card input {
   outline: none;
 }
 
+div.card textarea {
+  border-radius: 0.6rem;
+  border: 1px solid #333;
+  font-size: 1rem;
+  padding: 0.4rem;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 6rem;
+  outline: none;
+}
+
 div.card button {
   border: none;
   padding: 0.6rem 1rem;

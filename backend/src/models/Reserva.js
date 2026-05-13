@@ -1,7 +1,9 @@
 import { Schema, model } from "mongoose"
 
 const SchemaReserva = new Schema({
-  data: String,
+  data: {type: Date, required: true, default: Date.now},
+  telefone: {type: String, required: true},
+  mensagem: {type: String, required: true},
   usuario: {
     type: Schema.Types.ObjectId,
     ref: "usuarios"
