@@ -48,8 +48,10 @@ div.casa-maior {
 button.proposta {
   font-size: 1rem;
   border: none;
-  background-color: #1f5c00;
-  color: #fff;
+  border: 2px solid #752c37;
+  color: #752c37;
+  background-color: #fff;
+  font-weight: bold;
   padding: 0.6rem 0.6rem;
   margin-top: 0.8rem;
   border-radius: 1rem;
@@ -57,7 +59,8 @@ button.proposta {
 }
 
 button.proposta:hover {
-  background-color: #447f1e;
+  background-color: #752c37;
+  color: #fff;
 }
 
 p.descricao {

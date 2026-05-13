@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { toast } from "react-toastify"
 import axios from "axios"
 import { jwtDecode } from "jwt-decode"
 import "./home.css"
+import CardProposta from "../elements/CardProposta"
 
 function Casa() {
   const [casa, setCasa] = useState({})
+  const [idCard, setIdCard] = useState(null)
   const { id } = useParams()
   const token = localStorage.getItem("token")
   const usuario = jwtDecode(token).id
@@ -22,8 +25,29 @@ function Casa() {
     getCasa()
   }, [id])
 
+  async function fazerProposta(id) {
+    try { 
+      setIdCard(id)
+      //toast.success("Proposta enviada!")
+    } catch {
+      setIdCard(null)
+      toast.error("Erro ao fazer proposta!")
+    }
+  }
+
+  async function fecharCard() {
+    try {
+      setIdCard(null)
+    } catch {
+      toast.error("Erro!")
+    }
+  }
+
   return (
     <section>
+      { idCard && (
+        <CardProposta fecharCard={fecharCard} />
+      ) }
       <div className="container">
       
         <div className="casa-maior">
@@ -37,8 +61,8 @@ function Casa() {
 
           <p className="descricao">Aluga-se casa perto do centro com 150 metros quadrados, próximo à hospitais, mercados e centros logísticos</p>
 
-          {casa.usuario !== usuario && (
-            <button className="proposta">Fazer uma proposta.</button>
+          {casa.usuario !== usuario & casa.status === true && (
+            <button onClick={()=>fazerProposta(casa._id)} className="proposta">Fazer uma proposta.</button>
           )}
         </div>
 
