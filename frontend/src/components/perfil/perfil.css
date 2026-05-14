@@ -68,3 +68,31 @@ div.casa i.fa-trash {
   border-radius: 50%;
   cursor: pointer;
 }
+
+div.propostas {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+div.minhas-propostas {
+  padding: 0.8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div.proposta {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.8rem;
+  box-shadow: -2px 2px 4px 1px rgba(0, 0, 0, 0.24);
+}
+
+div.proposta i {
+  cursor: pointer;
+}

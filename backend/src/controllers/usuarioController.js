@@ -19,7 +19,7 @@ export async function logarUsuario(request, response) {
       return response.status(401).json({Erro: "Usuário não possui um cadastro!"})
     }
     const token = jwt.sign(
-      { id: consulta._id },
+      { id: consulta._id, email: consulta.email },
       process.env.SENHA_JWT,
       { expiresIn: "1h" }
     )
@@ -42,7 +42,7 @@ export async function cadastrarUsuario(request, response) {
     }
     const query = await ModelUsuario.create({ email: email })
     const token = jwt.sign(
-      {id: query._id}, 
+      {id: query._id, email: query.email}, 
       process.env.SENHA_JWT, 
       {expiresIn:"1h"}
     )

@@ -6,7 +6,9 @@ import "./perfil.css"
 
 function Perfil() {
   const [minhasCasas, setMinhasCasas] = useState([])
+  const [minhasPropostas, setMinhasPropostas] = useState([])
   const navigate = useNavigate()
+  const token = localStorage.getItem("token")
 
   useEffect(()=>{
     async function getMinhasCasas() {
@@ -22,9 +24,21 @@ function Perfil() {
         console.log("Erro ao buscar suas casas | Ero -> "+erro)
       }
     }
+    async function getMinhasPropostas() {
+      try {
+        const response = await axios.get("http://localhost:4000/reservas", {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        setMinhasPropostas(response.data)
+      } catch(erro) {
+        console.log("Erro ao buscar as propostas | Erro -> "+erro)
+      }
+    }
     getMinhasCasas()
+    getMinhasPropostas()
   }, [])
-
   async function deletarCasa(id) {
     try {
       await axios.delete("http://localhost:4000/casas/"+id)
@@ -49,10 +63,12 @@ function Perfil() {
 
   return (
     <div className="container">
+
       <div className="dados">
         <label>Email: </label>
         <input value={"teste@teste.com"} disabled />
       </div>
+
       <div className="casas-perfil">
         <h2><i className="fa-solid fa-house"></i> Suas Casas</h2>
 
@@ -82,6 +98,25 @@ function Perfil() {
         </button>
 
       </div>
+
+      <div className="propostas">
+        <h2><i className="fa-solid fa-comment"></i> Propostas recebidas!</h2>
+        <div className="minhas-propostas">
+          { minhasPropostas.length === 0 ? (
+            <p>Nenhuma proposta recebida</p>
+          ): (
+            minhasPropostas.map((proposta, index)=>{
+              return (
+                <div key={proposta._id} className="proposta">
+                  <h3>{proposta.usuario.email}</h3>
+                  <i className="fa-solid fa-eye"></i>
+                </div>
+              )
+            })
+          ) }
+        </div>
+      </div>
+
       <button onClick={deslogarUsuario} className="sair">Sair</button>
     </div>
   );

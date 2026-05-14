@@ -4,7 +4,7 @@ import ModelUsuario from "../models/Usuario.js"
 
 export async function todasReservas(request, response) {
   try {
-    const query = await ModelReserva.find()
+    const query = await ModelReserva.find().populate("casa").populate("usuario")
     return response.status(200).json(query)
   } catch {
     return response.status(500).json({Erro: "Erro ao buscar as reservas!"})
@@ -14,7 +14,7 @@ export async function todasReservas(request, response) {
 export async function listarReservas(request, response) {
   try {
     const id_usuario = request.usuario.id
-    const query = await ModelReserva.find({usuario: id_usuario}).populate("casas")
+    const query = await ModelReserva.find({usuario: id_usuario}).populate("casa").populate("usuario")
     return response.status(200).json(query)
   } catch {
     return response.status(500).json({Erro: "Erro ao listar as reservas!"})

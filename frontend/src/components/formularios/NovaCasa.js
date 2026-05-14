@@ -26,8 +26,7 @@ function NovaCasa() {
           "Content-Type": "multipart/form-data"
         }
       })
-      navigate(0)
-      toast.success("Casa Cadastrada!")
+      navigate("/casas")
     } catch {
       toast.error("Erro ao cadastrar Casa!")
     }
