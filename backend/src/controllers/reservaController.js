@@ -25,7 +25,7 @@ export async function fazerReserva(request, response) {
   try {
     const id_usuario = request.usuario.id
     const { casa_id } = request.params
-    const { telefone, mensagem } = request.body
+    const { telefone, mensagem, id_interessado } = request.body
 
     const buscarCasa = await ModelCasa.findById(casa_id)
     if(!buscarCasa) {
@@ -42,6 +42,7 @@ export async function fazerReserva(request, response) {
     const reserva = await ModelReserva.create({
       telefone: telefone,
       mensagem: mensagem,
+      interessado: id_interessado,
       usuario: id_usuario,
       casa: casa_id
     })

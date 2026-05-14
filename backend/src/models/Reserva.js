@@ -4,7 +4,7 @@ const SchemaReserva = new Schema({
   data: {type: Date, required: true, default: Date.now},
   telefone: {type: String, required: true},
   mensagem: {type: String, required: true},
-  usuario: {
+  interessado: {
     type: Schema.Types.ObjectId,
     ref: "usuarios"
   },

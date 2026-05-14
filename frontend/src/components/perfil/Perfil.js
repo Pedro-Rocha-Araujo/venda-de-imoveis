@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import { toast } from "react-toastify"
+import { jwtDecode } from "jwt-decode"
 import axios from "axios"
 import "./perfil.css"
 
@@ -9,6 +10,7 @@ function Perfil() {
   const [minhasPropostas, setMinhasPropostas] = useState([])
   const navigate = useNavigate()
   const token = localStorage.getItem("token")
+  const usuario = jwtDecode(token)
 
   useEffect(()=>{
     async function getMinhasCasas() {
@@ -66,7 +68,7 @@ function Perfil() {
 
       <div className="dados">
         <label>Email: </label>
-        <input value={"teste@teste.com"} disabled />
+        <input value={usuario.email} disabled />
       </div>
 
       <div className="casas-perfil">

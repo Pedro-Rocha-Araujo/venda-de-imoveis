@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify"
+import { jwtDecode } from "jwt-decode"
 import axios from "axios"
 import "./card.css"
 
@@ -11,9 +12,11 @@ function CardProposta({fecharCard, idCasa}) {
     e.preventDefault()
     try {
       const token = localStorage.getItem("token")
+      const usuario = jwtDecode(token)
       const response = await axios.post(`http://localhost:4000/casas/${idCasa}/reserva`, {
         telefone: telefone,
-        mensagem: mensagem
+        mensagem: mensagem,
+        id_interessado: usuario.id_interessado
       }, 
       {
         headers: {
