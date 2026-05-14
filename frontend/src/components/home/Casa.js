@@ -50,7 +50,14 @@ function Casa() {
       <div className="container">
       
         <div className="casa-maior">
-          <h2><i className="fa-solid fa-envelope"></i> Proprietário: {casa.usuario?.email}</h2>
+
+          <div className="cabecalho">
+            <h2><i className="fa-solid fa-envelope"></i> Proprietário: {casa.usuario?.email}</h2>
+            {casa.usuario?._id === usuario && casa.status === true && (
+              <button>Excluir anuncio</button>
+            )}
+          </div>
+          
           <img src={casa.foto} />
 
           <div className="footer">

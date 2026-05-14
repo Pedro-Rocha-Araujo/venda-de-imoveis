@@ -40,6 +40,26 @@ div.casa-maior {
   margin-bottom: 1rem;
 }
 
+.casa-maior .cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #b61519;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.cabecalho button:hover {
+  background-color: #e02d30;
+}
+
 .casa-maior img {
   border-radius: 1rem;
   margin: 0.6rem 0;
