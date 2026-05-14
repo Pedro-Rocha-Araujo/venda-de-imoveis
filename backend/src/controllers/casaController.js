@@ -83,11 +83,27 @@ export async function editarCasa(request, response) {
 export async function deletarCasa(request, response) {
   try {
     const { casa_id } = request.params
+    const id_usuario = request.usuario.id
+
     if(!casa_id) {
       return response.status(400).json({Erro: "Os dados não foram passados corretamente!"})
     }
+
+    const consulta = await ModelCasa.findById(casa_id)
+    
+    if(!consulta) {
+      return response.status(404).json({Erro: "Casa não encontrada!"})
+    }
+    
+    if(consulta.usuario.toString() !== id_usuario) {
+      return response.status(401).json({Erro: "Você está tentando deletar uma casa que não é sua!"})
+    }
+
+
     const query = await ModelCasa.findByIdAndDelete(casa_id)
+
     return response.status(200).json({Mensagem: "Casa apagada com sucesso!"})
+
   } catch {
     return response.status(500).json({Erro: "Erro ao deletar casa!"})
   }

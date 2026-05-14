@@ -1,14 +1,13 @@
 div.casas {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem;
 }
 
 div.casa {
   width: 100%;
   background-color: #fff;
-  max-width: 340px;
+  max-width: 430px;
   padding: 0.6rem;
   border-radius: 0.6rem;
 }
@@ -85,4 +84,25 @@ button.proposta:hover {
 
 p.descricao {
   margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 1480px) {
+  div.casas {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  div.casas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  div.casas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
