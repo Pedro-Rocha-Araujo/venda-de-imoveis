@@ -7,16 +7,16 @@ import "./card.css"
 function CardProposta({fecharCard, idCasa}) {
   const [telefone, setTelefone] = useState("")
   const [mensagem, setMensagem] = useState("")
+  const token = localStorage.getItem("token")
+  const usuario = jwtDecode(token)
 
   async function finalizarProposta(e) {
     e.preventDefault()
     try {
-      const token = localStorage.getItem("token")
-      const usuario = jwtDecode(token)
       const response = await axios.post(`http://localhost:4000/casas/${idCasa}/reserva`, {
         telefone: telefone,
         mensagem: mensagem,
-        id_interessado: usuario.id_interessado
+        id_interessado: usuario.id
       }, 
       {
         headers: {
@@ -39,11 +39,11 @@ function CardProposta({fecharCard, idCasa}) {
         <h2><i className="fa-solid fa-phone"></i> Digite seu telefone para contato!</h2>
         <form onSubmit={finalizarProposta}>
           <input required placeholder="(00)0000-0000" 
-            name="telefone" onChange={(e)=>setTelefone(e.target.value)}
+            name="telefone" value={telefone} onChange={(e)=>setTelefone(e.target.value)}
           />
 
           <textarea required placeholder="Digite uma mensagem para o dono do imóvel" 
-            name="mensagem" onChange={(e)=>setMensagem(e.target.value)}
+            name="mensagem" value={mensagem} onChange={(e)=>setMensagem(e.target.value)}
           />
 
           <button type="submit" className="enviar">Enviar</button>

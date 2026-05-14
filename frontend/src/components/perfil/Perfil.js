@@ -49,7 +49,7 @@ function Perfil() {
       toast.error("Erro ao deletar Casa")
     }
   }
-
+  console.log(minhasPropostas)
   function redirecionar(rota) {
     navigate(`/${rota}`)
   }
@@ -68,7 +68,7 @@ function Perfil() {
 
       <div className="dados">
         <label>Email: </label>
-        <input value={usuario.email} disabled />
+        <input value={usuario?.email} disabled />
       </div>
 
       <div className="casas-perfil">
@@ -110,7 +110,7 @@ function Perfil() {
             minhasPropostas.map((proposta, index)=>{
               return (
                 <div key={proposta._id} className="proposta">
-                  <h3>{proposta.usuario.email}</h3>
+                  <h3>{proposta.interessado.email}</h3>
                   <i className="fa-solid fa-eye"></i>
                 </div>
               )

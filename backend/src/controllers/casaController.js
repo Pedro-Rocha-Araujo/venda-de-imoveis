@@ -15,7 +15,7 @@ export async function listarCasa(request, response) {
     if(!id || id === undefined) {
       return response.status(400).json({Erro: "Erro ao buscar casa pelo Id"})
     }
-    const query = await ModelCasa.findById( id )
+    const query = await ModelCasa.findById( id ).populate("usuario")
     return response.status(200).json(query)
   } catch {
     return response.status(500).json({Erro: "Erro ao buscar casa!"})

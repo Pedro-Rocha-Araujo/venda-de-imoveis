@@ -4,7 +4,7 @@ import ModelUsuario from "../models/Usuario.js"
 
 export async function todasReservas(request, response) {
   try {
-    const query = await ModelReserva.find().populate("casa").populate("usuario")
+    const query = await ModelReserva.find().populate("casa").populate("interessado").populate("usuario")
     return response.status(200).json(query)
   } catch {
     return response.status(500).json({Erro: "Erro ao buscar as reservas!"})
@@ -14,7 +14,7 @@ export async function todasReservas(request, response) {
 export async function listarReservas(request, response) {
   try {
     const id_usuario = request.usuario.id
-    const query = await ModelReserva.find({usuario: id_usuario}).populate("casa").populate("usuario")
+    const query = await ModelReserva.find({usuario: id_usuario}).populate("casa").populate("interessado").populate("usuario")
     return response.status(200).json(query)
   } catch {
     return response.status(500).json({Erro: "Erro ao listar as reservas!"})
@@ -42,13 +42,23 @@ export async function fazerReserva(request, response) {
     const reserva = await ModelReserva.create({
       telefone: telefone,
       mensagem: mensagem,
+      usuario: buscarCasa.usuario,
       interessado: id_interessado,
-      usuario: id_usuario,
       casa: casa_id
     })
     return response.status(201).json({Mensagem: "Reserva feita com sucesso!"})
 
   } catch {
     return response.status(500).json({Erro: "Erro ao fazer a reserva! | Erro->"})
+  }
+}
+
+export async function deletarReserva(request, response) {
+  try {
+    const { id_reserva } = request.params
+    const query = await ModelReserva.findByIdAndDelete(id_reserva)
+    return response.status(200).json({Mensagem: "Reserva deletada com sucesso!"})
+  } catch {
+    return response.status(500).json({Erro: "Erro ao deletar a reserva!"})
   }
 }

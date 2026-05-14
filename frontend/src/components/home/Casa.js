@@ -24,11 +24,10 @@ function Casa() {
     }
     getCasa()
   }, [id])
-
+  
   async function fazerProposta(id) {
     try { 
       setIdCard(id)
-      //toast.success("Proposta enviada!")
     } catch {
       setIdCard(null)
       toast.error("Erro ao fazer proposta!")
@@ -51,7 +50,7 @@ function Casa() {
       <div className="container">
       
         <div className="casa-maior">
-        
+          <h2><i className="fa-solid fa-envelope"></i> Proprietário: {casa.usuario?.email}</h2>
           <img src={casa.foto} />
 
           <div className="footer">
@@ -61,7 +60,7 @@ function Casa() {
 
           <p className="descricao">Aluga-se casa perto do centro com 150 metros quadrados, próximo à hospitais, mercados e centros logísticos</p>
 
-          {casa.usuario !== usuario & casa.status === true && (
+          {casa.usuario?._id !== usuario && casa.status === true && (
             <button onClick={()=>fazerProposta(casa._id)} className="proposta">Fazer uma proposta.</button>
           )}
         </div>
