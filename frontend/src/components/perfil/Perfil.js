@@ -4,10 +4,12 @@ import { toast } from "react-toastify"
 import { jwtDecode } from "jwt-decode"
 import axios from "axios"
 import "./perfil.css"
+import PreviewProposta from "../elements/PreviewProposta"
 
 function Perfil() {
   const [minhasCasas, setMinhasCasas] = useState([])
   const [minhasPropostas, setMinhasPropostas] = useState([])
+  const [preview, setPreview] = useState(null)
   const navigate = useNavigate()
   const token = localStorage.getItem("token")
   const usuario = jwtDecode(token)
@@ -41,6 +43,7 @@ function Perfil() {
     getMinhasCasas()
     getMinhasPropostas()
   }, [])
+
   async function deletarCasa(id) {
     try {
       await axios.delete("http://localhost:4000/casas/"+id)
@@ -49,7 +52,7 @@ function Perfil() {
       toast.error("Erro ao deletar Casa")
     }
   }
-  console.log(minhasPropostas)
+
   function redirecionar(rota) {
     navigate(`/${rota}`)
   }
@@ -63,9 +66,23 @@ function Perfil() {
     }
   }
 
+  function abrirPreview(id) {
+    try {
+      setPreview(id)
+    } catch {
+      toast.error("Erro ao abrir proposta!")
+    }
+  }
+
+  function fecharPreview() {
+    setPreview(null)
+  }
+
   return (
     <div className="container">
-
+      { preview && (
+        <PreviewProposta id={preview} fechar={fecharPreview} />
+      ) }
       <div className="dados">
         <label>Email: </label>
         <input value={usuario?.email} disabled />
@@ -102,7 +119,9 @@ function Perfil() {
       </div>
 
       <div className="propostas">
+
         <h2><i className="fa-solid fa-comment"></i> Propostas recebidas!</h2>
+
         <div className="minhas-propostas">
           { minhasPropostas.length === 0 ? (
             <p>Nenhuma proposta recebida</p>
@@ -111,7 +130,7 @@ function Perfil() {
               return (
                 <div key={proposta._id} className="proposta">
                   <h3>{proposta.interessado.email}</h3>
-                  <i className="fa-solid fa-eye"></i>
+                  <i onClick={()=>abrirPreview(proposta._id)} className="fa-solid fa-eye fa-lg"></i>
                 </div>
               )
             })

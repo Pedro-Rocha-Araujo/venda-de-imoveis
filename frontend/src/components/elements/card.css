@@ -1,5 +1,6 @@
 div.background {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -13,7 +14,7 @@ div.background {
 div.card {
   background-color: #fff;
   border-radius: 1rem;
-  padding: 1rem 0.4rem;
+  padding: 1rem 0.6rem;
   width: 98%;
   max-width: 620px;
 }
@@ -50,6 +51,10 @@ div.card textarea {
   outline: none;
 }
 
+div.card p {
+  margin: 0.4rem 0;
+}
+
 div.card button {
   border: none;
   padding: 0.6rem 1rem;
@@ -73,4 +78,8 @@ div.card button {
 
 .cancelar:hover {
   background-color: #d42629;
+}
+
+.centro {
+  width: 100%;
 }

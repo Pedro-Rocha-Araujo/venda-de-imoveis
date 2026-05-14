@@ -4,7 +4,7 @@ import { upload } from "./upload.js"
 import { logarUsuario, cadastrarUsuario, mostrarUsuarios } from "./controllers/usuarioController.js"
 import { listarCasas, listarCasa, novaCasa, editarCasa, deletarCasa } from "./controllers/casaController.js"
 import { casasCadastradas } from "./controllers/dashboardController.js"
-import { fazerReserva, todasReservas, listarReservas, deletarReserva } from "./controllers/reservaController.js"
+import { fazerReserva, getReserva, todasReservas, listarReservas, deletarReserva } from "./controllers/reservaController.js"
 
 import { checarToken } from "./middlewares/usuarioMiddleware.js"
 
@@ -25,6 +25,7 @@ router.get("/dashboard", checarToken, casasCadastradas)
 // Rotas relacionadas às reservas
 router.get("/todas-reservas", todasReservas)
 router.get("/reservas", checarToken, listarReservas)
+router.get("/reserva/:id_reserva", getReserva)
 router.post("/casas/:casa_id/reserva", checarToken, fazerReserva)
 router.delete("/reservas/:id_reserva", deletarReserva)
 

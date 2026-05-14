@@ -11,6 +11,16 @@ export async function todasReservas(request, response) {
   }
 }
 
+export async function getReserva(request, response) {
+  try {
+    const { id_reserva } = request.params
+    const query = await ModelReserva.findById(id_reserva).populate("casa").populate("usuario").populate("interessado")
+    return response.status(200).json(query)
+  } catch {
+    return response.status(500).json({Erro: "Erro ao buscar a reserva!"})
+  }
+}
+
 export async function listarReservas(request, response) {
   try {
     const id_usuario = request.usuario.id
