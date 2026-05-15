@@ -1,11 +1,31 @@
 import { Router } from "express"
 import { upload } from "./upload.js"
-
-import { logarUsuario, cadastrarUsuario, mostrarUsuarios } from "./controllers/usuarioController.js"
-import { listarCasas, listarCasa, novaCasa, editarCasa, deletarCasa } from "./controllers/casaController.js"
-import { casasCadastradas } from "./controllers/dashboardController.js"
-import { fazerReserva, getReserva, todasReservas, listarReservas, deletarReserva } from "./controllers/reservaController.js"
-
+// Imports das funções de Usuário
+import { 
+  logarUsuario, 
+  cadastrarUsuario, 
+  mostrarUsuarios 
+} from "./controllers/usuarioController.js"
+// Imports das funções de casas
+import { 
+  listarCasas, 
+  listarCasa, 
+  novaCasa,  
+  deletarCasa 
+} from "./controllers/casaController.js"
+// Import das funções de Dashboard
+import { 
+  casasCadastradas 
+} from "./controllers/dashboardController.js"
+// Import das funções de Reserva / Proposta
+import { 
+  fazerReserva, 
+  getReserva, 
+  todasReservas, 
+  listarReservas, 
+  deletarReserva 
+} from "./controllers/reservaController.js"
+// Import do Middleware de checagem do token de autenticação
 import { checarToken } from "./middlewares/usuarioMiddleware.js"
 
 const router = Router()
@@ -18,7 +38,6 @@ router.post("/cadastro", cadastrarUsuario)
 router.get("/casas", listarCasas)
 router.get("/casa/:id", listarCasa)
 router.post("/casas", checarToken, upload.single("foto"), novaCasa)
-router.put("/casas/:casa_id", upload.single("foto"), editarCasa)
 router.delete("/casas/:casa_id", deletarCasa)
 // Rotas relacionadas ao Dashboard
 router.get("/dashboard", checarToken, casasCadastradas)
