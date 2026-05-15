@@ -28,52 +28,50 @@ div.footer {
 
 div.casa-maior {
   background-color: #fff;
-  margin: auto;
-  padding: 1rem 1rem 1.6rem 1rem;
-  width: 100%;
-  max-width: 920px;
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  max-width: 920px;
+  margin: auto;
+  padding: 0.8rem 0.8rem 1rem 0.8rem;
+  border-radius: 1rem;
   margin-bottom: 1rem;
 }
 
 .casa-maior .cabecalho {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.cabecalho button {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 2rem;
-  background-color: #b61519;
+.cabecalho i.fa-trash {
   color: #fff;
-  font-size: 1rem;
-  transition: all 0.2s;
+  background-color: #b61519;
+  padding: 0.5rem 0.6rem;
+  border-radius: 50%;
+  transition: all 0.3s;
 }
 
-.cabecalho button:hover {
-  background-color: #e02d30;
+.cabecalho i.fa-trash:hover {
+  background-color: #d42326;
 }
 
 .casa-maior img {
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   margin: 0.6rem 0;
 }
 
 button.proposta {
-  font-size: 1rem;
-  border: none;
-  border: 2px solid #752c37;
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: #752c37;
   background-color: #fff;
+  border: none;
+  border: 2px solid #752c37;
   font-weight: bold;
-  padding: 0.6rem 0.6rem;
-  margin-top: 0.8rem;
-  border-radius: 1rem;
+  padding: 0.6rem;
+  margin-top: 0.6rem;
+  border-radius: 2rem;
   transition: all 0.3s;
 }
 
@@ -83,7 +81,8 @@ button.proposta:hover {
 }
 
 p.descricao {
-  margin-top: 0.2rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  margin-top: 0.3rem;
 }
 
 @media screen and (max-width: 1480px) {

@@ -17,6 +17,10 @@ div.casas-perfil {
   margin-bottom: 1rem;
 }
 
+div.casas-perfil h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
 div.casas-cadastradas {
   padding: 1rem 0;
   display: flex;
@@ -25,27 +29,32 @@ div.casas-cadastradas {
 }
 
 button.cadastrar {
-  background-color: #5e1f28;
   color: #fff;
+  background-color: #5e1f28;
+  font-size: 1rem;
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 1.2rem;
-  font-size: 1.04rem;
+  border-radius: 2rem;
+  transition: all 0.3s;
+}
+
+button.cadastrar:hover {
+  background-color: #792834;
 }
 
 button.sair {
-  width: 100%;
-  background-color: #5e1f28;
   color: #fff;
+  background-color: #5e1f28;
+  width: 100%;
+  font-size: 1rem;
   border: none;
   padding: 0.8rem;
-  border-radius: 1.4rem;
-  font-size: 1.04rem;
+  border-radius: 2rem;
   transition: all 0.3s;
 }
 
 button.sair:hover {
-  background-color: #752c37;
+  background-color: #792834;
 }
 
 div.casa {
@@ -54,15 +63,15 @@ div.casa {
 
 div.pessoal {
   border: 1px solid #e4e4e4;
-  box-shadow: -2px 2px 4px 1px rgba(0, 0, 0, 0.24);
+  box-shadow: -3px 3px 4px 1px rgba(0, 0, 0, 0.24);
 }
 
 div.casa i.fa-trash {
+  color: #fff;
+  background-color: #752c37;
   position: absolute;
   top: 1rem;
   right: 0.9rem;
-  color: #fff;
-  background-color: #752c37;
   border: 1px solid black;
   padding: 1.2rem 0.8rem;
   border-radius: 50%;
@@ -76,22 +85,26 @@ div.propostas {
   margin-bottom: 1rem;
 }
 
+div.propostas h3 {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+}
+
 div.minhas-propostas {
-  padding: 0.8rem 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0.8rem 0;
 }
 
 div.proposta {
   width: 100%;
   max-width: 380px;
-  border-radius: 1.4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 2rem;
   padding: 0.8rem 1rem;
-  box-shadow: -2px 2px 4px 1px rgba(0, 0, 0, 0.24);
+  box-shadow: -3px 3px 4px 1px rgba(0, 0, 0, 0.24);
 }
 
 div.proposta i {

@@ -21,6 +21,11 @@ function PreviewProposta({fechar, id}) {
     <div className="background">
       <div className="card">
         <h2><i className="fa-solid fa-envelope"></i> Remetente: {itemPreview?.interessado.email}</h2>
+
+        <div className="casa">
+          <img src={itemPreview?.casa.foto} />
+        </div>
+
         <h3><i className="fa-solid fa-phone"></i> Telefone: {itemPreview?.telefone}</h3>
         <p><strong>Mensagem:</strong> {itemPreview?.mensagem}</p>
         <button onClick={fechar} className="cancelar centro">Fechar</button>

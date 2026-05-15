@@ -34,7 +34,7 @@ function NovaCasa() {
 
   return (
     <div className="container nova-casa">
-      <h2>Cadastrar Casa!</h2>
+      <h2 className="nova-casa"><i className="fa-solid fa-clipboard"></i> Cadastrar Casa!</h2>
       <form onSubmit={cadastrarCasa} className="nova-casa">
 
         <div className="input-file">

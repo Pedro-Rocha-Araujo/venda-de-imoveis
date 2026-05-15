@@ -1,4 +1,5 @@
-div.nova-casa h2 {
+div.nova-casa h2.nova-casa {
+  font-size: clamp(1.4rem, 6vw, 2rem);
   text-align: center;
   margin-bottom: 0.8rem;
 }
@@ -51,15 +52,20 @@ form.nova-casa input {
 }
 
 form.nova-casa textarea {
-  padding: 0.4rem;
   width: 100%;
   max-width: 580px;
   min-height: 100px;
+  padding: 0.4rem;
 }
 
 form.nova-casa button {
-  border: none;
-  background-color: #5e1f28;
   color: #fff;
+  background-color: #5e1f28;
+  border: none;
   font-size: 1rem;
+  transition: all 0.3s;
+}
+
+form.nova-casa button:hover {
+  background-color: #742c37;
 }

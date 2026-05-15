@@ -1,65 +1,69 @@
 div.background {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  background-color: #000000c9;
   width: 100%;
   height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000000c9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 div.card {
   background-color: #fff;
-  border-radius: 1rem;
-  padding: 1rem 0.6rem;
   width: 98%;
   max-width: 620px;
+  border-radius: 1rem;
+  padding: 1rem 0.6rem;
 }
 
 div.card h2 {
-  text-align: center;
-  font-size: clamp(1.6rem, 4vw, 2rem);
-  margin: 1rem 0;
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+
+div.card h3 {
+  font-size: clamp(0.9rem, 4vw, 1.5rem);
 }
 
 div.card form {
+  margin-top: 0.6rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
 div.card input {
-  border-radius: 0.6rem;
-  border: 1px solid #333;
-  font-size: 1rem;
-  padding: 0.4rem;
   height: 2.4rem;
+  font-size: 1rem;
+  border: 1px solid #333;
   outline: none;
+  border-radius: 0.6rem;
+  padding: 0.4rem;
 }
 
 div.card textarea {
-  border-radius: 0.6rem;
-  border: 1px solid #333;
-  font-size: 1rem;
-  padding: 0.4rem;
   max-width: 100%;
   min-width: 100%;
   min-height: 6rem;
+  font-size: 1rem;
+  border: 1px solid #333;
   outline: none;
+  border-radius: 0.6rem;
+  padding: 0.4rem;
 }
 
 div.card p {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   margin: 0.4rem 0;
 }
 
 div.card button {
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 0.8rem;
   color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0.6rem 1rem;
 }
 
 .enviar {
