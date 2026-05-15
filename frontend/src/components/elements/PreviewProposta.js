@@ -4,7 +4,7 @@ import axios from "axios"
 
 function PreviewProposta({fechar, id}) {
   const [itemPreview, setItemPreview] = useState()
-  console.log(itemPreview)
+
   useEffect(()=>{
     async function buscarId() {
       try {

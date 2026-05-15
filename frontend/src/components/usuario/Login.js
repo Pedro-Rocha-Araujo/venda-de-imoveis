@@ -1,11 +1,12 @@
-import "./usuario.css"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import axios from "axios"
+import "./usuario.css"
 
 function Login() {
   const [email, setEmail] = useState("")
+
   const navigate = useNavigate()
 
   async function fazerLogin(e) {
@@ -16,7 +17,7 @@ function Login() {
       })
       const token = response.data.token
       localStorage.setItem("token", token)
-      toast.success("Login feito com sucesso!")
+      
       navigate("/casas")
     } catch {
       toast.error("Erro ao logar!")

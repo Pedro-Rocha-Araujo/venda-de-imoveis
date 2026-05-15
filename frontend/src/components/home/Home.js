@@ -5,6 +5,7 @@ import "./home.css"
 
 function Home() {
   const [casas, setCasas] = useState([])
+  
   useEffect(()=>{
     async function getCasas() {
       try {

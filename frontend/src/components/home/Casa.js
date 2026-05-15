@@ -3,13 +3,15 @@ import { useParams } from "react-router-dom"
 import { toast } from "react-toastify"
 import axios from "axios"
 import { jwtDecode } from "jwt-decode"
-import "./home.css"
 import CardProposta from "../elements/CardProposta"
+import "./home.css"
 
 function Casa() {
   const [casa, setCasa] = useState({})
   const [idCard, setIdCard] = useState(null)
+
   const { id } = useParams()
+
   const token = localStorage.getItem("token")
   const usuario = jwtDecode(token).id
 
@@ -39,6 +41,7 @@ function Casa() {
       setIdCard(null)
     } catch {
       toast.error("Erro!")
+      setIdCard(null)
     }
   }
 

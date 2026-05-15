@@ -9,23 +9,28 @@ function NovaCasa() {
   const [preco, setPreco] = useState()
   const [localizacao, setLocalizacao] = useState("")
   const [descricao, setDescricao] = useState("")
+
   const navigate = useNavigate()
 
   async function cadastrarCasa(e) {
     e.preventDefault()
     try {
       const formData = new FormData()
+
       const token = localStorage.getItem("token")
+
       formData.append("foto", foto)
       formData.append("preco", Number(preco))
       formData.append("localizacao", localizacao)
       formData.append("descricao", descricao)
-      const response = await axios.post("http://localhost:4000/casas", formData, {
+
+      await axios.post("http://localhost:4000/casas", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data"
         }
       })
+
       navigate("/casas")
     } catch {
       toast.error("Erro ao cadastrar Casa!")

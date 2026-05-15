@@ -3,14 +3,16 @@ import { useNavigate, Link } from "react-router-dom"
 import { toast } from "react-toastify"
 import { jwtDecode } from "jwt-decode"
 import axios from "axios"
-import "./perfil.css"
 import PreviewProposta from "../elements/PreviewProposta"
+import "./perfil.css"
 
 function Perfil() {
   const [minhasCasas, setMinhasCasas] = useState([])
   const [minhasPropostas, setMinhasPropostas] = useState([])
   const [preview, setPreview] = useState(null)
+
   const navigate = useNavigate()
+  
   const token = localStorage.getItem("token")
   const usuario = jwtDecode(token)
 

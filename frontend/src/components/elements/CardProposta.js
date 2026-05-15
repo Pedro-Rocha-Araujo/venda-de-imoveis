@@ -7,13 +7,14 @@ import "./card.css"
 function CardProposta({fecharCard, idCasa}) {
   const [telefone, setTelefone] = useState("")
   const [mensagem, setMensagem] = useState("")
+  
   const token = localStorage.getItem("token")
   const usuario = jwtDecode(token)
 
   async function finalizarProposta(e) {
     e.preventDefault()
     try {
-      const response = await axios.post(`http://localhost:4000/casas/${idCasa}/reserva`, {
+      await axios.post(`http://localhost:4000/casas/${idCasa}/reserva`, {
         telefone: telefone,
         mensagem: mensagem,
         id_interessado: usuario.id
