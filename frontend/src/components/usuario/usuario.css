@@ -2,7 +2,7 @@ div.usuario {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 64dvh;
+  min-height: 100dvh;
 }
 
 div.cadastro {

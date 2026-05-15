@@ -19,6 +19,7 @@ function Login() {
       localStorage.setItem("token", token)
       
       navigate("/casas")
+      navigate(0)
     } catch {
       toast.error("Erro ao logar!")
     }

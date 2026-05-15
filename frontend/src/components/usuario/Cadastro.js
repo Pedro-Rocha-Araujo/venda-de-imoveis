@@ -18,6 +18,7 @@ function Cadastro() {
       const token = response.data.token
       localStorage.setItem("token", token)
       navigate("/casas")
+      navigate(0)
       setEmail("")
     } catch {
       toast.error("Erro ao cadastrar o usuário!")
