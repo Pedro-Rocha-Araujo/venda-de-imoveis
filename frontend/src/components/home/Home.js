@@ -27,7 +27,7 @@ function Home() {
             <div key={casa._id} className="casa">
               <img src={casa.foto} />
               <div className="footer">
-                <h3><Link to={`/casa/${casa._id}`} >Ver mais</Link></h3>
+                <h3><Link to={`/casa/${casa._id}`} ><i className="fa-solid fa-eye"></i> Ver mais</Link></h3>
                 <span>R$ {casa.preco}</span>
               </div>
             </div>

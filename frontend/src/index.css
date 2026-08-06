@@ -6,7 +6,11 @@
 }
 
 body {
-  background-color: rgb(231, 231, 231);
+  background: 
+    linear-gradient(#ecececcb, #c9c7c7be), url('../public/background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
 }
 
 header {

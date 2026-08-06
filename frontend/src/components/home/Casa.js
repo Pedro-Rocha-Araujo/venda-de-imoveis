@@ -55,7 +55,7 @@ function Casa() {
         <div className="casa-maior">
 
           <div className="cabecalho">
-            <h2><i className="fa-solid fa-envelope"></i> Proprietário: {casa.usuario?.email}</h2>
+            <h2><i className="fa-solid fa-user"></i> Proprietário: {casa.usuario?.email}</h2>
             {casa.usuario?._id === usuario && casa.status === true && (
               <i className="fa-solid fa-trash"></i>
             )}

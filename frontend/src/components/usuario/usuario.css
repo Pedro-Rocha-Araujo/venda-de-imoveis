@@ -31,12 +31,12 @@ form.main-cadastro {
 }
 
 form.main-cadastro input {
-  height: 2.8rem;
+  font-size: clamp(0.9rem, 3vw, 1.05rem);
+  height: 3rem;
   width: 100%;
   border: none;
   outline: none;
-  padding: 0.4rem;
-  margin: 1rem 0;
+  padding: 0.4rem 1rem;
 }
 
 form.main-cadastro input::placeholder {
@@ -46,7 +46,7 @@ form.main-cadastro input::placeholder {
 form.main-cadastro button {
   color: #fff;
   background-color: #5e1f28;
-  height: 2.8rem;
+  height: 3.2rem;
   width: 100%;
   border: none;
   font-size: 1rem;

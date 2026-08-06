@@ -7,6 +7,7 @@ div.casas {
 div.casa {
   width: 100%;
   background-color: #fff;
+  box-shadow: -2px 2px 3px 1px #0000006c;
   max-width: 430px;
   padding: 0.6rem;
   border-radius: 0.6rem;
